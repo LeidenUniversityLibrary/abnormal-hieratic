@@ -20,9 +20,18 @@
       $(function() {
         Mirador({
           id: "viewer",
-          data: [{manifestUri: "https://iiif.universiteitleiden.nl/manifests/external/louvre/e-7852.json"}],  
+          buildPath: "mirador",
+          data: [{manifestUri: "https://iiif.universiteitleiden.nl/manifests/external/louvre/e-7852.json", location: "Louvre"}],
+          mainMenuSettings: {
+            show: false
+          },
           windowObjects: [{
-          loadedManifest: "https://iiif.universiteitleiden.nl/manifests/external/louvre/e-7852.json"
+            loadedManifest: "https://iiif.universiteitleiden.nl/manifests/external/louvre/e-7852.json",
+            displayLayout: false,
+            bottomPanel: false,
+            bottomPanelAvailable: false,
+            bottomPanelVisible: false,
+            sidePanel: false
           }]
         });
       });
