@@ -32,7 +32,14 @@
             bottomPanelAvailable: false,
             bottomPanelVisible: false,
             sidePanel: false
-          }]
+          }],
+          annotationEndpoint: {
+            name: 'Simple Annotation Store Endpoint',
+            module: 'SimpleASEndpoint',
+            options: {
+              url: 'https://iiif.universiteitleiden.nl/anno/annotation',
+            }
+          }
         });
       });
     </script>
