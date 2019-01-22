@@ -11,8 +11,8 @@
         position: fixed;
       }
     </style>
-    <link rel="stylesheet" type="text/css" href="mirador/css/mirador-combined.css">
-    <script src="mirador/mirador.js"></script>
+    <link rel="stylesheet" type="text/css" href="/mirador/2.7.0/css/mirador-combined.css">
+    <script src="/mirador/2.7.0/mirador.js"></script>
   </head>
   <body>
     <div id="viewer"></div>
@@ -20,7 +20,7 @@
       $(function() {
         Mirador({
           id: "viewer",
-          buildPath: "mirador/",
+          buildPath: "/mirador/2.7.0/",
           data: [{manifestUri: "https://iiif.universiteitleiden.nl/manifests/external/louvre/e-7852.json", location: "Louvre"}],
           mainMenuSettings: {
             show: false
