@@ -30,7 +30,7 @@ $results = json_decode($file, true);
     <input name="q" type="text" placeholder="Your query…" value="<?php echo $query; ?>" />
     <input type="submit" value="Search" />
 </form>
-<p>Results for <span><?php echo $query; ?></span></p>
+<p>Results for <span class="searchterm"><?php echo $query; ?></span> (<?php echo $results['hits']['total']; ?> results found)</p>
 
 <?php foreach($results['hits']['hits'] as $hit): ?>
 <div>
