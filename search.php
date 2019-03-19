@@ -25,7 +25,8 @@ $results = json_decode($file, true);
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
+<h1>Search papyrus contents</h1>
+<p>This form allows you to search within the annotated papyri using (parts of) transliterations, the name of the annotator, translations or word type.</p>
 <form id="search" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <input name="q" type="text" placeholder="Your query…" value="<?php echo $query; ?>" />
     <input type="submit" value="Search" />
