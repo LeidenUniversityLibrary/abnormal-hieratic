@@ -26,6 +26,10 @@ $results = json_decode($file, true);
 </head>
 <body>
 
+<form id="search" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <input name="q" type="text" placeholder="Your query…" value="<?php echo $query; ?>" />
+    <input type="submit" value="Search" />
+</form>
 <p>Results for <span><?php echo $query; ?></span></p>
 
 <?php foreach($results['hits']['hits'] as $hit): ?>
