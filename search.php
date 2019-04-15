@@ -35,7 +35,8 @@ $results = json_decode($file, true);
 
 <?php foreach($results['hits']['hits'] as $hit): ?>
 <div>
-    <h2><?php echo $hit['_source']['manifest_label'] . '→' . $hit['_source']['canvas_label'] . '#xywh=' . $hit['_source']['x'] . ','. $hit['_source']['y'] .','. $hit['_source']['w'] .','. $hit['_source']['h']; ?></h2>
+    <h2><?php echo $hit['_source']['manifest_label'] . '→' . $hit['_source']['canvas_label']; ?></h2>
+    <p><?php echo  '#xywh=' . $hit['_source']['x'] . ','. $hit['_source']['y'] .','. $hit['_source']['w'] .','. $hit['_source']['h']; ?></p>
     <img src="<?php echo $hit['_source']['image_full_url']; ?>">
     <?php foreach($hit['_source']['svg'] as $img): ?>
     
