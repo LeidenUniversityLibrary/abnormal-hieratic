@@ -23,6 +23,12 @@ $results = json_decode($file, true);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Search results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+.transliteration {
+	font-family: "Junicode";
+	font-style: italic;
+	font-size: 120%;
+}</style>
 </head>
 <body>
 <h1>Search papyrus contents</h1>
@@ -45,7 +51,7 @@ $results = json_decode($file, true);
     <?php endforeach; ?>
 <dl class="result">
     <dt>Transliteration</dt>
-    <dd><?php echo $hit['_source']['transliteration']; ?></dd>
+    <dd class="transliteration"><?php echo $hit['_source']['transliteration']; ?></dd>
     <dt>Type</dt>
     <dd><?php echo $hit['_source']['type']; ?></dd>
     <dt>Translation</dt>
