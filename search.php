@@ -27,9 +27,14 @@ $results = json_decode($file, true);
     body {
         max-width: 800px;
     }
+    #hieroglyphs {
+        display: flex;
+    }
     #hieroglyphs img {
         max-width: 100%;
         max-height: 100%;
+        object-fit: contain;
+        width: 100%;
     }
 .transliteration {
 	font-family: "Junicode";
