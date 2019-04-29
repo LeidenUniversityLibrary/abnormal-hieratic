@@ -24,6 +24,9 @@ $results = json_decode($file, true);
     <title>Search results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
+    body {
+        max-width: 800px;
+    }
 .transliteration {
 	font-family: "Junicode";
 	font-style: italic;
@@ -45,10 +48,10 @@ $results = json_decode($file, true);
     <p><a href="<?php echo $hit['_source']['portal_url']; ?>" target="_blank">View 
     <?php echo $hit['_source']['canvas_label']; ?> in portal</a></p>
     <a href="<?php echo $hit['_source']['portal_url']; ?>" target="_blank"><img src="<?php echo $hit['_source']['image_full_url']; ?>"></a>
+    <div style="width: <?php echo $hit['_source']['w']; ?>">
     <?php foreach($hit['_source']['svg'] as $img): ?>
-    
     <img src="<?php echo $img; ?>">
-    <?php endforeach; ?>
+    <?php endforeach; ?></div>
 <dl class="result">
     <dt>Transliteration</dt>
     <dd class="transliteration"><?php echo $hit['_source']['transliteration']; ?></dd>
