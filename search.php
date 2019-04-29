@@ -27,6 +27,10 @@ $results = json_decode($file, true);
     body {
         max-width: 800px;
     }
+    #hieroglyphs img {
+        max-width: 100%;
+        max-height: 100%;
+    }
 .transliteration {
 	font-family: "Junicode";
 	font-style: italic;
@@ -48,7 +52,7 @@ $results = json_decode($file, true);
     <p><a href="<?php echo $hit['_source']['portal_url']; ?>" target="_blank">View 
     <?php echo $hit['_source']['canvas_label']; ?> in portal</a></p>
     <a href="<?php echo $hit['_source']['portal_url']; ?>" target="_blank"><img src="<?php echo $hit['_source']['image_full_url']; ?>"></a>
-    <div style="width: <?php echo $hit['_source']['w']; ?>">
+    <div id="hieroglyphs" style="width: <?php echo $hit['_source']['w']; ?>px;">
     <?php foreach($hit['_source']['svg'] as $img): ?>
     <img src="<?php echo $img; ?>">
     <?php endforeach; ?></div>
