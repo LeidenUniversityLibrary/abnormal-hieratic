@@ -73,5 +73,8 @@ $results = json_decode($file, true);
 </dl>
 </div>
 <?php endforeach; ?>
+<footer>
+    <p>Return to the <a href="https://lab.library.universiteitleiden.nl/abnormalhieratic/">Abnormal Hieratic Global Portal</a>.</p>
+</footer>
 </body>
 </html>
