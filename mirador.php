@@ -58,7 +58,7 @@ if ( isset($_GET['m']) && stripos($_GET['m'], 'https://iiif.universiteitleiden.n
           }
         });
         if (true) {
-            mir.eventEmitter.publish('fitBounds.0', {'x': x, 'y': y, 'width': w, 'height': h});
+            mir.eventEmitter.publish('fitBounds.0', {'x': 0, 'y': 0, 'width': 200, 'height': 200});
         }
       });
     </script>
