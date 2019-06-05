@@ -14,7 +14,7 @@ if ( isset($_GET['m']) && stripos($_GET['m'], 'https://iiif.universiteitleiden.n
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Mirador – Papyrus 001</title>
+    <title>Mirador</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -30,8 +30,9 @@ if ( isset($_GET['m']) && stripos($_GET['m'], 'https://iiif.universiteitleiden.n
   <body>
     <div id="viewer"></div>
     <script type="text/javascript">
+      var mir;
       $(function() {
-        var mir = Mirador({
+        mir = Mirador({
           id: "viewer",
           buildPath: "/mirador/2.7.0/",
           data: [{manifestUri: "<?php echo $manifest; ?>", location: "Louvre"}],
@@ -44,7 +45,8 @@ if ( isset($_GET['m']) && stripos($_GET['m'], 'https://iiif.universiteitleiden.n
             bottomPanel: false,
             bottomPanelAvailable: false,
             bottomPanelVisible: false,
-            sidePanel: false
+            sidePanel: false,
+            id: "the_window"
           }],
           availableAnnotationDrawingTools: [
             'Rectangle', 'Ellipse', 'Polygon'
@@ -59,7 +61,17 @@ if ( isset($_GET['m']) && stripos($_GET['m'], 'https://iiif.universiteitleiden.n
         });
         if (true) {
             console.log('before emit');
-            var wid = mir.options.windowObjects[0].id;
+            console.log(mir.viewer);
+            console.log(mir.eventEmitter);
+            //var wid = mir.viewer.workspace.slots[0].window.id;
+            var wid = "the_window";
+            mir.eventEmitter.subscribe('annotationListLoaded.the_window', function(event) { console.log('received annolist loaded'); });
+            mir.eventEmitter.subscribe('fitBounds.the_window', function(event, bounds) { console.log('received fitBounds'); });
+            mir.eventEmitter.subscribe('imageBoundsUpdated', function(event, data) { 
+              $.map(data.osdBounds, function(item, i) { 
+                console.log('new bounds: ' + item); 
+              }) 
+            });
             console.log(wid);
             mir.eventEmitter.publish('fitBounds.'+wid, {'x': 0, 'y': 0, 'width': 200, 'height': 200});
             console.log('after emit');
