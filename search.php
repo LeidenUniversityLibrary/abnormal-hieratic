@@ -73,6 +73,30 @@ $results = json_decode($file, true);
     <input name="q" type="text" placeholder="Your query…" value="<?php echo $query; ?>" />
     <input type="submit" value="Search" />
 </form>
+<div>
+<p>
+By default, the query you enter is used to search all fields.
+This makes it easy to get results, although you may limit what fields are searched by using this syntax:</p>
+
+<code>field_name:query</code>
+
+<p>Note that there are no spaces around the colon.</p>
+
+<p>Available (useful) field names are</p>
+<ul>
+    <li>transliteration</li>
+    <li>translation</li>
+    <li>type (type of word)</li>
+    <li>annotator</li>
+</ul>
+
+<p>Example searches using this query syntax:</p>
+<ul>
+    <li>translation:field</li>
+    <li>transliteration:I͗mn</li>
+    <li>annotator:Juan</li>
+</ul>
+</div>
 <p>Results for <span class="searchterm"><?php echo $query; ?></span> (<?php echo $results['hits']['total']['value']; ?> results found)</p>
 
 <?php foreach($results['hits']['hits'] as $hit):
