@@ -24,6 +24,30 @@ $results = json_decode($file, true);
     <title>Search results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode-Bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode-BoldItalic.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode-Italic.woff") format('woff');
+    font-style: italic;
+}
     body {
         max-width: 800px;
     }
