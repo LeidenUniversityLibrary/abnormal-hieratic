@@ -51,12 +51,13 @@ $results = json_decode($file, true);
 </form>
 <p>Results for <span class="searchterm"><?php echo $query; ?></span> (<?php echo $results['hits']['total']; ?> results found)</p>
 
-<?php foreach($results['hits']['hits'] as $hit): ?>
+<?php foreach($results['hits']['hits'] as $hit):
+    $url = $hit['_source']['portal_url'] . '?anno=' . $hit['_source']['uri'] ?>
 <div>
     <h2><?php echo $hit['_source']['manifest_label'] . '→' . $hit['_source']['canvas_label']; ?></h2>
-    <p><a href="<?php echo $hit['_source']['portal_url']; ?>" target="_blank">View 
+    <p><a href="<?php echo $url; ?>" target="_blank">View 
     <?php echo $hit['_source']['canvas_label']; ?> in portal</a></p>
-    <a href="<?php echo $hit['_source']['portal_url']; ?>" target="_blank"><img src="<?php echo $hit['_source']['image_full_url']; ?>"></a>
+    <a href="<?php echo $url; ?>" target="_blank"><img src="<?php echo $hit['_source']['image_full_url']; ?>"></a>
     <div id="hieroglyphs" style="width: <?php echo $hit['_source']['w']; ?>px;">
     <?php foreach($hit['_source']['svg'] as $img): ?>
     <img src="<?php echo $img; ?>">
