@@ -1,0 +1,44 @@
+/**
+Styling that goes with the search page and results
+*/
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode-Bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode-BoldItalic.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Junicode";
+    src: url("assets/woff/Junicode-Italic.woff") format('woff');
+    font-style: italic;
+}
+body {
+    max-width: 800px;
+}
+.hieroglyphs {
+    display: flex;
+}
+.hieroglyphs img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+.transliteration {
+    font-family: "Junicode";
+    font-style: italic;
+    font-size: 120%;
+}

@@ -23,48 +23,7 @@ $results = json_decode($file, true);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Search results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-
-@font-face {
-    font-family: "Junicode";
-    src: url("assets/woff/Junicode.woff") format('woff');
-}
-
-@font-face {
-    font-family: "Junicode";
-    src: url("assets/woff/Junicode-Bold.woff") format('woff');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Junicode";
-    src: url("assets/woff/Junicode-BoldItalic.woff") format('woff');
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Junicode";
-    src: url("assets/woff/Junicode-Italic.woff") format('woff');
-    font-style: italic;
-}
-    body {
-        max-width: 800px;
-    }
-    #hieroglyphs {
-        display: flex;
-    }
-    #hieroglyphs img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        width: 100%;
-    }
-.transliteration {
-	font-family: "Junicode";
-	font-style: italic;
-	font-size: 120%;
-}</style>
+    <link href="assets/css/search.css" rel="stylesheet" />
 </head>
 <body>
 <h1>Search papyrus contents</h1>
@@ -106,7 +65,7 @@ This makes it easy to get results, although you may limit what fields are search
     <p><a href="<?php echo $url; ?>" target="_blank">View 
     <?php echo $hit['_source']['canvas_label']; ?> in portal</a></p>
     <a href="<?php echo $url; ?>" target="_blank"><img src="<?php echo $hit['_source']['image_full_url']; ?>"></a>
-    <div id="hieroglyphs" style="width: <?php echo $hit['_source']['w']; ?>px;">
+    <div class="hieroglyphs" style="width: <?php echo $hit['_source']['w']; ?>px;">
     <?php foreach($hit['_source']['svg'] as $img): ?>
     <img src="<?php echo $img; ?>">
     <?php endforeach; ?></div>
