@@ -61,3 +61,7 @@ h2.result-link a {
     text-decoration-line: none;
     color: midnightblue;
 }
+
+p.anno-prov {
+    font-size: smaller;
+}

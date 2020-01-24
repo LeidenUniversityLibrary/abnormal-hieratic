@@ -83,7 +83,7 @@ This makes it easy to get results, although you may limit what fields are search
     <dt>Translation</dt>
     <dd><?php echo $source['translation']; ?></dd>
 </dl>
-<p>Added to <?php echo $source['manifest_label']; ?> by <?php echo ($source['annotator'] != "")? $source['annotator'] : "unknown"; ?>.</p>
+<p class="anno-prov">Added to <?php echo $source['manifest_label']; ?> by <?php echo ($source['annotator'] != "")? $source['annotator'] : "unknown"; ?>.</p>
 </div>
 <?php endforeach; ?>
 <footer>
