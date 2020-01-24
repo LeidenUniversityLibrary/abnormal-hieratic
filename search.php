@@ -27,7 +27,9 @@ $results = json_decode($file, true);
 </head>
 <body>
 <h1>Search papyrus contents</h1>
-<p>This form allows you to search within the annotated papyri using (parts of) transliterations, the name of the annotator, translations or word type.</p>
+<p>This form allows you to search within the annotated papyri using (parts of) transliterations, the name of the annotator, translations or word type.
+    By default all fields are searched.
+</p>
 <form id="search" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <input name="q" type="text" placeholder="Your query…" value="<?php echo $query; ?>" />
     <input type="submit" value="Search" />
@@ -44,17 +46,17 @@ This makes it easy to get results, although you may limit what fields are search
 
 <p>Available (useful) field names are</p>
 <ul>
-    <li>transliteration</li>
-    <li>translation</li>
-    <li>type (type of word)</li>
-    <li>annotator</li>
+    <li><code>transliteration</code></li>
+    <li><code>translation</code></li>
+    <li><code>type</code> (type of word)</li>
+    <li><code>annotator</code></li>
 </ul>
 
 <p>Example searches using this query syntax:</p>
 <ul>
-    <li>translation:field</li>
-    <li>transliteration:I͗mn</li>
-    <li>annotator:Juan</li>
+    <li><code>translation:field</code></li>
+    <li><code>transliteration:I͗mn</code></li>
+    <li><code>annotator:Juan</code></li>
 </ul>
 </div>
 <p>Results for <span class="searchterm"><?php echo $query; ?></span> (<?php echo $results['hits']['total']['value']; ?> results found)</p>
