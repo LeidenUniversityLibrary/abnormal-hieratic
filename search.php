@@ -63,10 +63,12 @@ This makes it easy to get results, although you may limit what fields are search
     $source = $hit['_source'];
     $url = $source['portal_url'] . '?anno=' . $source['uri'] ?>
 <div class="result-hit">
-    <h2><?php echo $source['manifest_label'] . '→' . $source['canvas_label']; ?></h2>
-    <p><a href="<?php echo $url; ?>" target="_blank">View 
-    <?php echo $source['canvas_label']; ?> in portal</a></p>
-    <a href="<?php echo $url; ?>" target="_blank"><img src="<?php echo $source['image_full_url']; ?>"></a>
+    <?php if ($source['transliteration'] != ""): ?>
+    <h2><a href="<?php echo $url; ?>" target="_blank" title="View annotation in context"><span class="transliteration"><?php echo $source['transliteration'] ; ?></span> (<?php echo $source['canvas_label']; ?>)</a></h2>
+    <?php else: ?>
+    <h2><a href="<?php echo $url; ?>" target="_blank" title="View annotation in context">[Annotation without transliteration] (<?php echo $source['canvas_label']; ?>)</a></h2>
+    <?php endif; ?>
+    <a href="<?php echo $url; ?>" target="_blank" title="View annotation in context"><img src="<?php echo $source['image_full_url']; ?>"></a>
     <div class="hieroglyphs" style="width: <?php echo $source['w']; ?>px;">
     <?php foreach($source['svg'] as $img): ?>
     <img src="<?php echo $img; ?>">
@@ -80,6 +82,8 @@ This makes it easy to get results, although you may limit what fields are search
     <dd><?php echo $source['translation']; ?></dd>
     <dt>Annotator</dt>
     <dd><?php echo $source['annotator']; ?></dd>
+    <dt>Papyrus</dt>
+    <dd><?php echo $source['manifest_label']; ?></dd>
 </dl>
 </div>
 <?php endforeach; ?>
