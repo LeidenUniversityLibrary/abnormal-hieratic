@@ -32,7 +32,8 @@ $results = json_decode($file, true);
     <input name="q" type="text" placeholder="Your query…" value="<?php echo $query; ?>" />
     <input type="submit" value="Search" />
 </form>
-<div>
+<p id="show-instructions">Show/hide full search instructions ›</p>
+<div id="instructions" style="display: none;">
 <p>
 By default, the query you enter is used to search all fields.
 This makes it easy to get results, although you may limit what fields are searched by using this syntax:</p>
@@ -59,30 +60,43 @@ This makes it easy to get results, although you may limit what fields are search
 <p>Results for <span class="searchterm"><?php echo $query; ?></span> (<?php echo $results['hits']['total']['value']; ?> results found)</p>
 
 <?php foreach($results['hits']['hits'] as $hit):
-    $url = $hit['_source']['portal_url'] . '?anno=' . $hit['_source']['uri'] ?>
-<div>
-    <h2><?php echo $hit['_source']['manifest_label'] . '→' . $hit['_source']['canvas_label']; ?></h2>
+    $source = $hit['_source'];
+    $url = $source['portal_url'] . '?anno=' . $source['uri'] ?>
+<div class="result-hit">
+    <h2><?php echo $source['manifest_label'] . '→' . $source['canvas_label']; ?></h2>
     <p><a href="<?php echo $url; ?>" target="_blank">View 
-    <?php echo $hit['_source']['canvas_label']; ?> in portal</a></p>
-    <a href="<?php echo $url; ?>" target="_blank"><img src="<?php echo $hit['_source']['image_full_url']; ?>"></a>
-    <div class="hieroglyphs" style="width: <?php echo $hit['_source']['w']; ?>px;">
-    <?php foreach($hit['_source']['svg'] as $img): ?>
+    <?php echo $source['canvas_label']; ?> in portal</a></p>
+    <a href="<?php echo $url; ?>" target="_blank"><img src="<?php echo $source['image_full_url']; ?>"></a>
+    <div class="hieroglyphs" style="width: <?php echo $source['w']; ?>px;">
+    <?php foreach($source['svg'] as $img): ?>
     <img src="<?php echo $img; ?>">
     <?php endforeach; ?></div>
-<dl class="result">
+<dl class="result-list">
     <dt>Transliteration</dt>
-    <dd class="transliteration"><?php echo $hit['_source']['transliteration']; ?></dd>
+    <dd class="transliteration"><?php echo $source['transliteration']; ?></dd>
     <dt>Type</dt>
-    <dd><?php echo $hit['_source']['type']; ?></dd>
+    <dd><?php echo $source['type']; ?></dd>
     <dt>Translation</dt>
-    <dd><?php echo $hit['_source']['translation']; ?></dd>
+    <dd><?php echo $source['translation']; ?></dd>
     <dt>Annotator</dt>
-    <dd><?php echo $hit['_source']['annotator']; ?></dd>
+    <dd><?php echo $source['annotator']; ?></dd>
 </dl>
 </div>
 <?php endforeach; ?>
 <footer>
     <p>Return to the <a href="https://lab.library.universiteitleiden.nl/abnormalhieratic/">Abnormal Hieratic Global Portal</a>.</p>
 </footer>
+<script type="text/javascript">
+const instructions = document.querySelector('#instructions');
+const s = document.querySelector('#show-instructions');
+s.onclick = toggleInstructions;
+
+function toggleInstructions(e) {
+    if (instructions.style.display === 'none') {
+        instructions.style.display = 'block';
+    } else {
+        instructions.style.display = 'none';
+    }
+}</script>
 </body>
 </html>

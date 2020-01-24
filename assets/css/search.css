@@ -27,6 +27,7 @@ Styling that goes with the search page and results
 }
 body {
     max-width: 800px;
+    padding-inline-start: 1rem;
 }
 .hieroglyphs {
     display: flex;
@@ -41,4 +42,12 @@ body {
     font-family: "Junicode";
     font-style: italic;
     font-size: 120%;
+}
+#show-instructions {
+    text-decoration: underline;
+}
+
+div.result-hit {
+    padding-inline-start: 1rem;
+    border-bottom: solid 2px;
 }
