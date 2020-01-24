@@ -51,3 +51,13 @@ div.result-hit {
     padding-inline-start: 1rem;
     border-bottom: solid 2px;
 }
+
+h2.result-link {
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+h2.result-link a {
+    text-decoration-line: none;
+    color: midnightblue;
+}

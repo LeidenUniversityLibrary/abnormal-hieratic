@@ -66,9 +66,9 @@ This makes it easy to get results, although you may limit what fields are search
     $url = $source['portal_url'] . '?anno=' . $source['uri'] ?>
 <div class="result-hit">
     <?php if ($source['transliteration'] != ""): ?>
-    <h2><a href="<?php echo $url; ?>" target="_blank" title="View annotation in context"><span class="transliteration"><?php echo $source['transliteration'] ; ?></span> (<?php echo $source['canvas_label']; ?>)</a></h2>
+    <h2 class="result-link"><a href="<?php echo $url; ?>" target="_blank" title="View annotation in context"><span class="transliteration"><?php echo $source['transliteration'] ; ?></span> (<?php echo $source['canvas_label']; ?>)</a></h2>
     <?php else: ?>
-    <h2><a href="<?php echo $url; ?>" target="_blank" title="View annotation in context">[Annotation without transliteration] (<?php echo $source['canvas_label']; ?>)</a></h2>
+    <h2 class="result-link"><a href="<?php echo $url; ?>" target="_blank" title="View annotation in context">[Annotation without transliteration] (<?php echo $source['canvas_label']; ?>)</a></h2>
     <?php endif; ?>
     <a href="<?php echo $url; ?>" target="_blank" title="View annotation in context"><img src="<?php echo $source['image_full_url']; ?>"></a>
     <div class="hieroglyphs" style="width: <?php echo $source['w']; ?>px;">
