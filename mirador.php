@@ -5,10 +5,10 @@
 if ( $_SERVER['REQUEST_METHOD'] !== 'GET') {
     die ('You didn\'t GET it');
 }
-if ( isset($_GET['m']) && stripos($_GET['m'], 'https://iiif.universiteitleiden.nl/manifests/') === 0) {
+if ( isset($_GET['m']) && stripos($_GET['m'], 'https://lab.library.universiteitleiden.nl/manifests/') === 0) {
     $manifest = $_GET['m'];
 } else {
-    $manifest = 'https://iiif.universiteitleiden.nl/manifests/external/louvre/e-7852.json';
+    $manifest = 'https://lab.library.universiteitleiden.nl/manifests/external/louvre/e-7852.json';
 }
 
 ?><!DOCTYPE html>
@@ -55,7 +55,7 @@ if ( isset($_GET['m']) && stripos($_GET['m'], 'https://iiif.universiteitleiden.n
             name: 'Simple Annotation Store Endpoint',
             module: 'SimpleASEndpoint',
             options: {
-              url: 'https://iiif.universiteitleiden.nl/anno/annotation',
+              url: 'https://lab.library.universiteitleiden.nl/anno/annotation',
             }
           }
         });
