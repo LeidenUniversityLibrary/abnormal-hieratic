@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mirador – Papyrus 001</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      #viewer {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://lab.library.universiteitleiden.nl/mirador/2.7.0/css/mirador-combined.css">
+    <script src="https://lab.library.universiteitleiden.nl/mirador/2.7.0/mirador.js"></script>
+  </head>
+  <body>
+    <div id="viewer"></div>
+    <script type="text/javascript">
+      var mir; 
+      $(function() {
+        mir = Mirador({
+          id: "viewer",
+          buildPath: "https://lab.library.universiteitleiden.nl/mirador/2.7.0/",
+          data: [{manifestUri: "https://lab.library.universiteitleiden.nl/manifests/external/louvre/e-7852.json", location: "Louvre"}],
+          mainMenuSettings: {
+            show: false
+          },
+          windowObjects: [{
+            loadedManifest: "https://lab.library.universiteitleiden.nl/manifests/external/louvre/e-7852.json",
+            displayLayout: false,
+            bottomPanel: false,
+            bottomPanelAvailable: false,
+            bottomPanelVisible: false,
+            sidePanel: false
+          }],
+          availableAnnotationDrawingTools: [
+            'Rectangle', 'Ellipse', 'Polygon'
+          ],
+          annotationEndpoint: {
+            name: 'Simple Annotation Store Endpoint',
+            module: 'SimpleASEndpoint',
+            options: {
+              url: 'https://lab.library.universiteitleiden.nl/anno/annotation',
+            }
+          }
+        });
+      });
+    if (true) {
+        console.log('before emit');
+        console.log(typeof mir);
+        var wid = mir.viewer.workspace.windows[0].id;
+        console.log(wid);
+        mir.eventEmitter.publish('fitBounds.'+wid, {'x': 0, 'y': 0, 'width': 200, 'height': 200});
+        console.log('after emit');
+    }
+    </script>
+  </body>
+</html>
