@@ -6,7 +6,7 @@ if ( $_SERVER['REQUEST_METHOD'] !== 'GET') {
     die ('You didn\'t GET it');
 }
 if ( isset($_GET['q']) ) {
-    $query = $_GET['q'];
+    $query = htmlentities($_GET['q']);
 } else {
     $query = '*';
 }
